@@ -50,10 +50,9 @@
         var ul =document.getElementById("source");
         var lis = ul.getElementsByTagName("li");
         for(var i = 0; i < lis.length; i++) {
-            var city = lis[i].innerText.substring(0,2);
-            var b = lis[i].getElementsByTagName("b");
-            var num = b[0].innerText;
-            data.push([city,num]);
+            var text = lis[i].textContent;
+            var tlist = text.split(/空气质量：/);
+            data.push([tlist[0],tlist[1]]);
         }
         return data;
     }
